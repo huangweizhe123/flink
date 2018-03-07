@@ -131,6 +131,7 @@ public class Kafka09Fetcher<T> extends AbstractFetcher<T, TopicPartition> {
 				// this blocks until we get the next records
 				// it automatically re-throws exceptions encountered in the consumer thread
 				final ConsumerRecords<byte[], byte[]> records = handover.pollNext();
+				Thread.sleep(100);
 
 				// get the records for each topic partition
 				for (KafkaTopicPartitionState<TopicPartition> partition : subscribedPartitionStates()) {
